@@ -1,0 +1,27 @@
+1. Crear una base de datos MySQL con el nombre db_system. 2. Dentro de la base de datos db_system, crear una tabla llamada users con las
+siguientes columnas:
+○ id (INT, AUTO_INCREMENT, PRIMARY KEY)
+○ username (VARCHAR(100))
+○ password (VARCHAR(100))
+3. Replicar en un proyecto de git propio, el repositorio revisado en clase (link
+https://github.com/aalesann/tlp2-2024-express-jwt.git) creando una rama llamada “backend-session”. 4. Refactorizar el servidor alojado en el directorio backend-session aplicando
+modularización de rutas y controladores de forma tal que ambos se alojen en sus
+respectivos directorios. 5. Implementar la conexión a una base de datos utilizando el driver nativo mysql2
+para luego manejar la autenticación y autorización de usuarios con la misma
+conexión. 6. Ademas de las rutas /login, /session y /logout, implementar la ruta /register para
+permitir la creacion de un nuevo usuario que se guarde en la base de datos, para
+luego en las demás rutas manejar la información del usuario en la base de dato s. 7. Crear una nueva rama llamada “backend-jwt” y repetir los pasos 2, 3 y 4 para el
+servidor back-end alojado en el directorio backend-jwt. 8. Ubicar el método de generación de JWT y modificar el tiempo de validez a 5hs. 9. Establecer la variable de entorno SECRET_KEY con el valor aopz9-3f1iw12- 4ja94f-6l4jzg8. 10. Crear un proyecto front-end con VITE y adaptar el código alojado en el
+directorio frontend. 11. Crear usuarios y probar el inicio de sesión desde el front-end refactorizado en el
+punto 8. 12. Crear un archivo config.js en el proyecto donde se exporten las variables
+globales del sistema. Este archivo debe incluir las siguientes configuraciones:
+ Puerto del servidor: PORT
+ Conexión a la base de datos:
+ DB_HOST
+ DB_USER
+ DB_PASSWORD
+ DB_NAME
+ Clave secreta para EXPRESS-SESSION y JWT : SECRET_KEY
+
+Presentación:  Publicar la solución en un único repositorio de GitHub y compartir el link de dicho
+repositorio como tarea en ClassRoom.
