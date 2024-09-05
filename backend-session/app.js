@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import path from 'path';
 
 import { database } from './db/database.js';
+import router from './routers/routers.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -34,6 +35,7 @@ app.use(session({
         // sameSite: 'lax' // permite envío de cookies en navegadores modernos
     }
 }));
+app.use(router)
 
 
 
