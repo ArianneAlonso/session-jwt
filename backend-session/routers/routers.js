@@ -6,3 +6,5 @@ const router = Router();
 router.post('/logout', closeSession );
 router.get('/session', session );
 router.post('/login', loginSession );
+
+export default router
