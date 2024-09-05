@@ -5,7 +5,7 @@ import session from 'express-session';
 import morgan from 'morgan';
 import path from 'path';
 
-import { database } from './db/database.js';
+import { conectar } from './db/database.js';
 import router from './routers/routers.js';
 
 const app = express();
