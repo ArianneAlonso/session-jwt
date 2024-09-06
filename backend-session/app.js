@@ -17,6 +17,16 @@ conectar();
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
+app.use(session({
+    secret: 'mi_secreto',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { 
+        secure: false, // true solo si usas HTTPS
+        httpOnly: true, // evita acceso a cookie desde JavaScript del cliente
+        // sameSite: 'lax' // permite envío de cookies en navegadores modernos
+    }
+}));
 
 // rutas
 app.use('/', router);
