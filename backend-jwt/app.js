@@ -3,13 +3,9 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import cors from 'cors';
-
 import { PORT } from './config/env.js';
-import generarJwt from './helpers/generar-jwt.js';
-import validarJwt from './middlewares/validar-jwt.js';
-import { database } from './db/database.js';
 import morgan from 'morgan';
-
+import { Router } from './routers/routers.js';
 
 const app = express();
 

@@ -9,7 +9,7 @@ export const login = async (req, res) => {
         const user = database.user.find(
             user => user.username === username && user.password === password
         );
-
+        
         // Validación de usuario
         if (!user) {
             return res.status(401).json({ message: 'Credenciales incorrectas' });
