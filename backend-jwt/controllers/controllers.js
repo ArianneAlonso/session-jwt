@@ -1,3 +1,4 @@
+import { conectar } from "../db/database.js";
 
 // Endpoint de inicio de sesión (login)
 export const login = async (req, res) => {

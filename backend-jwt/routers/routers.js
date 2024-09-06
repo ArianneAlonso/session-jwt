@@ -1,3 +1,9 @@
-app.post('/login'); //endpoint de inicio de sesión
-app.get('/session', validarJwt);//endpoint para validar ña sesión
-app.post('/logout') //endpoint de cierre de sesión
+import {Router} from "express";
+import { login, validarSession, logout, validarJwt } from "../controllers/controllers";
+
+const router = Router(); 
+router.post('/login', login); //endpoint de inicio de sesión
+router.get('/session', validarJwt, validarSession);//endpoint para validar ña sesión
+router.post('/logout', logout) //endpoint de cierre de sesión
+
+export default router
