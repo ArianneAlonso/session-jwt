@@ -1,6 +1,6 @@
 
 // Endpoint de inicio de sesión (login)
-app.post('/login', async (req, res) => {
+export const login = async (req, res) => {
     const { username, password } = req.body;
 
 
@@ -32,16 +32,16 @@ app.post('/login', async (req, res) => {
         console.error(error);
         return res.status(500).json({ message: 'Error Inesperado' });
     }
-});
+};
 
 // Endpoint para validar la sesión
-app.get('/session', validarJwt, (req, res) => {
+export const validarSession = (req, res) => {
     console.log(req.user);
     return res.json({ message: 'Acceso permitido a área protegida', user: req.user });
-});
+};
 
 // Endpoint de cierre de sesión (logout)
-app.post('/logout', (req, res) => {
+export const logout = (req, res) => {
     try {
         req.session.destroy(err => {
             if (err) {
@@ -55,4 +55,4 @@ app.post('/logout', (req, res) => {
         console.error(error);
         return res.status(500).json({ message: 'Error Inesperado' });
     }
-});
+};
