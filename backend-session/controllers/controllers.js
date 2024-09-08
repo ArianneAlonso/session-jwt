@@ -63,7 +63,7 @@ export const loginSession = async (req, res) => {
 };
 
 // verificar si la sesión está activa
-export const session = (req, res) => {
+export const account = (req, res) => {
     if (req.session.user) {
         res.status(200).json({ message: 'Sesión activa', user: req.session.user });
     } else {
