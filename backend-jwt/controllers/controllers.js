@@ -4,14 +4,13 @@ import conectar from "../db/database.js"
 export const login = async (req, res) => {
     const { username, password } = req.body;
 
-
+    const connection = await conectar();
     try {
-        const user = database.user.find(
-            user => user.username === username && user.password === password
-        );
-        
+        const sql = "SELECT * FROM `users` WHERE `username` = ? AND `password` = ? LIMIT 1";
+
+        const [resultUsername] = await connection.query(sql, [username, password]);
         // Validación de usuario
-        if (!user) {
+        if (resultUsername.length == 0) {
             return res.status(401).json({ message: 'Credenciales incorrectas' });
         }
 
