@@ -10,9 +10,10 @@ const app = express();
 
 //middlewares
 app.use(cors({
-    origin: ['http://localhost:5500', 'http://localhost:3000', 'http://127.0.0.1:3000'],
+    origin: ['http://localhost:5500', 'http://localhost:4000'],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'] 
 }));
 
 app.use(morgan('dev'));
