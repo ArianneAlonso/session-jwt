@@ -1,5 +1,5 @@
-import { conectar } from "../db/database.js";
-import { dbconfig } from "../config/config.js";
+import {conectar} from "../db/database.js"
+import { SECRET_KEY} from "../config/config.js";
 
 // Endpoint de inicio de sesión (login)
 export const login = async (req, res) => {
