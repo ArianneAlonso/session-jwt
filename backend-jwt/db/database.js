@@ -10,4 +10,5 @@ export const conectar = async ()=>{
         database:dbconfig.DB_NAME
     })
 }
-export default conectar
+
+export default conectar;

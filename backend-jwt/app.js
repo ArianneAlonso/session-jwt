@@ -1,4 +1,3 @@
-// server.js
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
@@ -8,13 +7,14 @@ import morgan from 'morgan';
 import router from './routers/routers.js';
 
 const app = express();
-app.use(router);
 
+//middlewares
 app.use(cors({
     origin: ['http://localhost:5500', 'http://localhost:3000', 'http://127.0.0.1:3000'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
@@ -25,7 +25,10 @@ app.use(session({
     cookie: { secure: false } // Usar 'true' si usas HTTPS
 }));
 
-// Servidor escuchando
+// rutas
+app.use(router);
+
+// servidor escuchando
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

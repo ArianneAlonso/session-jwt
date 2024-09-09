@@ -1,5 +1,4 @@
-import {conectar} from "../db/database.js"
-import { SECRET_KEY} from "../config/config.js";
+import conectar from "../db/database.js"
 
 // Endpoint de inicio de sesión (login)
 export const login = async (req, res) => {
@@ -58,3 +57,29 @@ export const logout = (req, res) => {
         return res.status(500).json({ message: 'Error Inesperado' });
     }
 };
+
+export const register = async (req, res) => {
+    const {username, password} = req.body;
+    if(!username && !password ){
+        return res.status(404).json({
+            message:'todos los campos deben estar completos'
+        })
+    }else if(!username && password){
+        return res.status(404).json({
+            message:'todos los campos deben estar completos'
+        })
+    }else if(username && !password){
+        return res.status(404).json({
+            message:'todos los campos deben estar completos'
+        })
+    }
+    try {
+        const conectado = await conectar();
+        const sql = 'INSERT INTO `users`( `username`, `password`) VALUES (?,?);'
+        const [respuesta] = await conectado.query(sql,[username,password]);
+        if(respuesta)res.json({msg:'datos insertados correctamente'})   
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
