@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import { dbconfig } from '../config/config.js';
+import { dbconfig } from '../config/env.js';
 
 export const conectar = async ()=>{
     return await mysql.createConnection({

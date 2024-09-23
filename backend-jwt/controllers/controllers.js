@@ -1,4 +1,5 @@
-import conectar from "../db/database.js"
+import conectar from "../db/database.js";
+import generarJwt from "../helpers/generar-jwt.js";
 
 // Endpoint de inicio de sesión (login)
 export const login = async (req, res) => {
@@ -9,13 +10,16 @@ export const login = async (req, res) => {
         const sql = "SELECT * FROM `users` WHERE `username` = ? AND `password` = ? LIMIT 1";
 
         const [resultUsername] = await connection.query(sql, [username, password]);
+
+        console.log(resultUsername)
+        
         // Validación de usuario
         if (resultUsername.length == 0) {
             return res.status(401).json({ message: 'Credenciales incorrectas' });
         }
 
         // Generar token JWT
-        const token = await generarJwt(user.id);
+        const token = await generarJwt(resultUsername[0].id);
 
         // Almacenar el token en la sesión del servidor
         req.session.token = token;
