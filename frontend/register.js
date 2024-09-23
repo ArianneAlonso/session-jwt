@@ -17,9 +17,9 @@ const posteo = async (n,p)=>{
     }
 
 }
-const mostrardato = ()=>{
+const mostrardato = (event)=>{
     event.preventDefault()
-    const name = document.getElementById('name').value;
+    const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    posteo(name,password)
+    posteo(username,password)
 }
